@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101416" />
+    <title>T-Embed AI — Web Flasher</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <a class="brand" href="../README.md" aria-label="T-Embed AI">
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <span>T-Embed <em>AI</em></span>
+        </a>
+        <span class="eyebrow">WEB FLASHER · ESP32-S3</span>
+        <h1>Instale o firmware<br /><span>com segurança.</span></h1>
+        <p>
+          Flasher local pelo navegador para a LILYGO T-Embed CC1101 Plus. Nenhum
+          firmware ou dado serial passa por um servidor.
+        </p>
+      </header>
+
+      <section class="notice" id="browserNotice" hidden>
+        <strong>Navegador incompatível.</strong> Abra esta página em Chrome ou Edge recente, por HTTPS ou
+        <code>localhost</code>, para usar Web Serial.
+      </section>
+
+      <section class="workflow" aria-label="Etapas de gravação">
+        <div class="step is-current" data-step="1"><b>01</b><span>Conectar</span></div>
+        <div class="step" data-step="2"><b>02</b><span>Escolher imagem</span></div>
+        <div class="step" data-step="3"><b>03</b><span>Gravar</span></div>
+      </section>
+
+      <section class="grid">
+        <article class="panel connection-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-label">Dispositivo</span>
+              <h2>Conexão serial</h2>
+            </div>
+            <span class="status-pill" id="connectionState">Desconectado</span>
+          </div>
+          <ol class="compact-list">
+            <li>Conecte um cabo USB-C de dados.</li>
+            <li>Solte o botão do encoder antes de conectar.</li>
+            <li>Escolha a porta da T-Embed na janela do navegador.</li>
+          </ol>
+          <div class="actions">
+            <button class="primary" id="connectButton" type="button">Conectar placa</button>
+            <button class="secondary" id="disconnectButton" type="button" disabled>Desconectar</button>
+          </div>
+          <p class="fine-print" id="chipInfo">Aguardando uma conexão.</p>
+        </article>
+
+        <article class="panel release-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="section-label">Release</span>
+              <h2>Imagem oficial</h2>
+            </div>
+            <span class="release-tag" id="releaseVersion">Sem release</span>
+          </div>
+          <p id="releaseSummary" class="release-summary">
+            Procurando um pacote de firmware local…
+          </p>
+          <ul class="file-list" id="releaseFiles" aria-live="polite"></ul>
+          <button class="primary wide" id="flashReleaseButton" type="button" disabled>
+            Gravar imagem oficial
+          </button>
+          <p class="fine-print">A opção só é liberada quando o manifesto e todos os binários da release estiverem presentes.</p>
+        </article>
+      </section>
+
+      <section class="panel manual-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="section-label">Alternativa</span>
+            <h2>Imagem compilada localmente</h2>
+          </div>
+          <span class="release-tag neutral">Avançado</span>
+        </div>
+        <p class="release-summary">
+          Use os binários produzidos pelo PlatformIO. Os offsets abaixo correspondem ao perfil
+          <code>t_embed_ai</code>; deixe uma linha sem arquivo para não gravá-la.
+        </p>
+        <div class="manual-table" id="manualFiles">
+          <div class="manual-row manual-head"><span>Offset</span><span>Arquivo</span><span></span></div>
+          <div class="manual-row"><input aria-label="Offset do bootloader" value="0x0000" inputmode="text" /><input aria-label="Bootloader" type="file" accept=".bin,application/octet-stream" /><span>bootloader</span></div>
+          <div class="manual-row"><input aria-label="Offset da tabela de partições" value="0x8000" inputmode="text" /><input aria-label="Tabela de partições" type="file" accept=".bin,application/octet-stream" /><span>partitions</span></div>
+          <div class="manual-row"><input aria-label="Offset OTA" value="0xe000" inputmode="text" /><input aria-label="Boot app OTA" type="file" accept=".bin,application/octet-stream" /><span>boot_app0 <small>opcional</small></span></div>
+          <div class="manual-row"><input aria-label="Offset do firmware" value="0x10000" inputmode="text" /><input aria-label="Firmware" type="file" accept=".bin,application/octet-stream" /><span>firmware</span></div>
+        </div>
+        <label class="checkbox-row"><input id="eraseAll" type="checkbox" /> Apagar toda a flash antes de gravar <span>Remove configurações, NVS e dados internos.</span></label>
+        <button class="secondary wide" id="flashManualButton" type="button" disabled>Gravar arquivos selecionados</button>
+      </section>
+
+      <section class="panel log-panel">
+        <div class="panel-heading">
+          <div><span class="section-label">Diagnóstico</span><h2>Registro da operação</h2></div>
+          <button class="text-button" id="clearLogButton" type="button">Limpar</button>
+        </div>
+        <div class="progress-wrap" aria-label="Progresso de gravação">
+          <div class="progress-track"><div class="progress-value" id="progressValue"></div></div>
+          <span id="progressText">Pronto</span>
+        </div>
+        <pre id="log" aria-live="polite">T-Embed AI Web Flasher pronto.</pre>
+      </section>
+
+      <footer>
+        <span>Use apenas firmware confiável para a T-Embed AI.</span>
+        <a href="firmware/README.md">Publicar uma release</a>
+      </footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
