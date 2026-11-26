@@ -43,7 +43,7 @@ void HomeScreen::drawHeader(const char* title, const char* detail) {
   tft.drawString(title, 10, 7);
   tft.setTextColor(kMuted, kSurface);
   tft.setTextFont(1);
-  tft.drawRightString(detail, tft.width() - 8, 10);
+  tft.drawRightString(detail, tft.width() - 8, 10, 1);
 }
 
 void HomeScreen::drawFooter(const char* text) {
@@ -51,7 +51,7 @@ void HomeScreen::drawFooter(const char* text) {
   tft.fillRect(0, tft.height() - 22, tft.width(), 22, kSurface);
   tft.setTextColor(kMuted, kSurface);
   tft.setTextFont(1);
-  tft.drawCentreString(text, tft.width() / 2, tft.height() - 15);
+  tft.drawCentreString(text, tft.width() / 2, tft.height() - 15, 1);
 }
 
 void HomeScreen::drawStatusDot(int16_t x, int16_t y, bool active) {

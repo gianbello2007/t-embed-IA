@@ -3,13 +3,13 @@
 #include "core/System.h"
 
 namespace {
-System system;
+System firmwareSystem;
 }
 
 void setup() {
-  system.begin();
+  firmwareSystem.begin();
 }
 
 void loop() {
-  system.tick();
+  firmwareSystem.tick();
 }
