@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "board": "t_embed_ai",
+  "chip": "ESP32-S3",
+  "available": false,
+  "version": null,
+  "reason": "Ainda não há uma imagem compilada e validada para publicar. Use a seção de arquivos locais ou execute o empacotador após um build PlatformIO aprovado.",
+  "files": []
+}

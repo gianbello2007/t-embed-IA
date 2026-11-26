@@ -12,6 +12,7 @@
 - Montagem do MicroSD e criação da árvore `/T-EMBED-AI`.
 - Sondagem I2C de PN532, BQ27220 e BQ25896, sem alteração dos registros de carga.
 - Web Flasher estático com Web Serial, validação ESP32-S3, manifesto de release com SHA-256 e seleção manual de binários.
+- Workflow GitHub Actions para compilar o ESP32-S3, montar o pacote do Web Flasher, publicar artefatos e implantar no GitHub Pages.
 
 ### Conhecidas / pendentes
 

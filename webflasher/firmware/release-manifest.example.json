@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "board": "t_embed_ai",
+  "chip": "ESP32-S3",
+  "available": true,
+  "version": "0.1.0",
+  "notes": "Fase 1 — boot, display, entrada, MicroSD e diagnóstico I2C.",
+  "files": [
+    { "name": "bootloader.bin", "path": "releases/0.1.0/bootloader.bin", "address": "0x0000", "sha256": "GERADO_PELO_EMPACOTADOR" },
+    { "name": "partitions.bin", "path": "releases/0.1.0/partitions.bin", "address": "0x8000", "sha256": "GERADO_PELO_EMPACOTADOR" },
+    { "name": "boot_app0.bin", "path": "releases/0.1.0/boot_app0.bin", "address": "0xe000", "sha256": "GERADO_PELO_EMPACOTADOR" },
+    { "name": "t-embed-ai-0.1.0.bin", "path": "releases/0.1.0/t-embed-ai-0.1.0.bin", "address": "0x10000", "sha256": "GERADO_PELO_EMPACOTADOR" }
+  ]
+}

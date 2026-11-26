@@ -29,6 +29,10 @@ pio device monitor -b 115200
 
 Leia [docs/BUILD.md](docs/BUILD.md) antes da primeira gravação e [docs/HARDWARE_AUDIT.md](docs/HARDWARE_AUDIT.md) antes de conectar um nRF24L01 ou testar rádios.
 
+## Instalação rápida
+
+Após o workflow **Build firmware and publish Web Flasher** concluir com sucesso, abra o [Web Flasher](https://gianbello2007.github.io/t-embed-IA/) no Chrome ou Edge, conecte a placa por USB-C e clique em **Gravar imagem oficial**. O pacote publicado contém os binários e hashes gerados pelo próprio build; nenhuma imagem é disponibilizada manualmente sem uma compilação aprovada.
+
 ## Navegação da imagem atual
 
 - Gire o encoder: muda a seleção no launcher.
